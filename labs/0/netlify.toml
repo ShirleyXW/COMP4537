@@ -1,8 +1,8 @@
 [build]
-  base = "COMP4537/labs/0"  # Path to your folder where static files are
-  publish = "COMP4537/labs/0"  # The folder that contains the final files like index.html
+  base = "."  # This refers to the root of the repository
+  publish = "labs/0"  # This is the folder that contains your HTML files
 
 [[redirects]]
   from = "/COMP4537/*"
-  to = "/COMP4537/labs/0/:splat"
+  to = "/labs/0/:splat"
   status = 200
