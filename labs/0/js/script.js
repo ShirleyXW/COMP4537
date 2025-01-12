@@ -3,6 +3,7 @@
 let colorExists = [];
 let buttons = [];
 const shuffleInterval = 2000;
+const defaultWaitTime = 1000;
 const defaultFontSize = 16;
 const btnWidth = 10;
 const btnHeight = 5;
@@ -11,7 +12,7 @@ const userText = new User();
 class Button {
     constructor(id) {
         this.btn = document.createElement("button");;
-        this.btn.id = "btn" + id;
+        this.btn.id = id;
         this.btn.className = "btn";
         this.btn.innerText = id;
         this.btn.style.width = `${btnWidth}em`;
@@ -21,12 +22,15 @@ class Button {
     getButton() {
         return this.btn;
     }
-    getRandomPosition() { 
+    getRandomPosition() {
         const maxX = document.getElementById("playground").offsetWidth - btnWidth * defaultFontSize;
         const maxY = document.getElementById("playground").offsetHeight - btnHeight * defaultFontSize;
         let left = Math.floor(Math.random() * maxX);
         let top = Math.floor(Math.random() * maxY);
         return [left, top];
+    }
+    revealId() {
+        return this.btn.id;
     }
 }
 
@@ -74,7 +78,7 @@ function addBtns(numOfBtns) {
     playground.clearPlayground();
 
     for (let i = 0; i < numOfBtns; i++) {
-        const btn = new Button(i);
+        const btn = new Button(i + 1);
         buttons.push(btn);
         document.getElementById("playground").appendChild(btn.getButton());
     }
@@ -95,6 +99,40 @@ function shuffle(number) {
     setTimeout(() => clearInterval(intervalID), shuffleInterval * number);
 }
 
+
+
+function enableClikableButtons() {
+    let order = 0;
+    buttons.forEach((button) => {
+        button.btn.onclick = function() {
+            if (order == button.btn.id - 1) {
+                order++;
+                button.btn.innerText = button.revealId();
+                console.log(order);
+                if (order == buttons.length) {
+                    alert(userText.getCongratsText());
+                    colorExists = [];
+                    buttons = [];
+                    playground.clearPlayground();
+                }
+            } else {
+                buttons.forEach((button) => {
+                    button.btn.innerText = button.revealId();
+                });
+                setTimeout(() => {
+                    alert(userText.getGameOverText());
+                    colorExists = [];
+                    buttons = [];
+                    playground.clearPlayground();
+                }
+                , defaultWaitTime);
+            }
+
+        }
+    });
+
+}
+
 function go() {
     let numOfBtns = document.getElementById("number").value;
     let result;
@@ -102,7 +140,9 @@ function go() {
         let number = parseInt(numOfBtns);
         addBtns(number);
         result = userText.getSuccessText();
-        setTimeout(shuffle(number), number*1000);
+        setTimeout(()=>{shuffle(number)}, number * defaultWaitTime);
+        setTimeout(()=> {enableClikableButtons()}, defaultWaitTime);
+
     } else {
         result = userText.getInvalidText();
         alert(result);
