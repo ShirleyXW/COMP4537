@@ -1,8 +1,3 @@
 [build]
   publish = "."
   base = "."
-
-[[redirects]]
-  from = "/COMP4537/labs/0/*"
-  to = "/labs/0/:splat"
-  status = 200
