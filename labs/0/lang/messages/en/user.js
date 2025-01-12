@@ -1,4 +1,7 @@
 class User {
+    constructor(playground) {
+        this.playground = playground;
+    }
     getInvalidText() {
         return "Please enter a number between 3 and 7";
     }

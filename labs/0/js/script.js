@@ -7,7 +7,25 @@ const defaultWaitTime = 1000;
 const defaultFontSize = 16;
 const btnWidth = 10;
 const btnHeight = 5;
-const userText = new User();
+
+class Playground {
+    constructor() {
+        this.playground = document.createElement("section");
+        this.playground.id = "playground";
+        this.playground.position = "relative";
+    }
+    clearPlayground() {
+        this.playground.innerHTML = "";
+    }
+    createPlayground() {
+        document.getElementById("quest-and-create").insertAdjacentElement("afterend", playground.playground);
+    }
+}
+
+
+const playground = new Playground();
+const user = new User(playground);
+user.playground.createPlayground();
 
 class Button {
     constructor(id) {
@@ -34,23 +52,6 @@ class Button {
     }
 }
 
-class Playground {
-    constructor() {
-        this.playground = document.createElement("section");
-        this.playground.id = "playground";
-        this.playground.position = "relative";
-    }
-    clearPlayground() {
-        this.playground.innerHTML = "";
-    }
-    createPlayground() {
-        document.getElementById("quest-and-create").insertAdjacentElement("afterend", playground.playground);
-    }
-}
-
-
-const playground = new Playground();
-playground.createPlayground();
 
 function getColor() {
     let colors = ["aliceblue", "aqua", "blueviolet", "chartreuse", "coral", "beige", "fuchsia"];
@@ -110,7 +111,7 @@ function enableClikableButtons() {
                 button.btn.innerText = button.revealId();
                 console.log(order);
                 if (order == buttons.length) {
-                    alert(userText.getCongratsText());
+                    alert(user.getCongratsText());
                     colorExists = [];
                     buttons = [];
                     playground.clearPlayground();
@@ -120,7 +121,7 @@ function enableClikableButtons() {
                     button.btn.innerText = button.revealId();
                 });
                 setTimeout(() => {
-                    alert(userText.getGameOverText());
+                    alert(user.getGameOverText());
                     colorExists = [];
                     buttons = [];
                     playground.clearPlayground();
@@ -139,12 +140,12 @@ function go() {
     if (isValidInput(numOfBtns)) {
         let number = parseInt(numOfBtns);
         addBtns(number);
-        result = userText.getSuccessText();
+        result = user.getSuccessText();
         setTimeout(()=>{shuffle(number)}, number * defaultWaitTime);
         setTimeout(()=> {enableClikableButtons()}, defaultWaitTime);
 
     } else {
-        result = userText.getInvalidText();
+        result = user.getInvalidText();
         alert(result);
     }
     console.log(result);
