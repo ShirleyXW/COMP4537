@@ -2,12 +2,12 @@
     display: none;
     color: red;
 }
-button {
+.btn {
     margin: 10px;
 }
 
 #playground {
-    
+    position: relative;
     width: 100%;
     height: 50vh;
 }
