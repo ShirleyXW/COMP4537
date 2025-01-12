@@ -1,8 +1,0 @@
-[build]
-  base = "."  # This refers to the root of the repository
-  publish = "labs/0"  # This is the folder that contains your HTML files
-
-[[redirects]]
-  from = "/COMP4537/*"
-  to = "/labs/0/:splat"
-  status = 200
