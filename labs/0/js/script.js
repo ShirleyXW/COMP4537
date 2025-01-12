@@ -8,6 +8,13 @@ const defaultFontSize = 16;
 const btnWidth = 10;
 const btnHeight = 5;
 
+function Message() {
+    this.invalidText = "Please enter a number between 3 and 7";
+    this.congratsText = "Excellent memory!";
+    this.gameOverText = "Wrong order!";
+    this.successText = "Buttons created!";
+}
+
 class Playground {
     constructor() {
         this.playground = document.createElement("section");
@@ -24,7 +31,8 @@ class Playground {
 
 
 const playground = new Playground();
-const user = new User(playground);
+const message = new Message();
+const user = new User(playground, message);
 user.playground.createPlayground();
 
 class Button {

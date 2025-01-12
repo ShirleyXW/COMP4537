@@ -1,14 +1,7 @@
-function Message() {
-    this.invalidText = "Please enter a number between 3 and 7";
-    this.congratsText = "Excellent memory!";
-    this.gameOverText = "Wrong order!";
-    this.successText = "Buttons created!";
-}
-
 class User {
-    constructor(playground) {
+    constructor(playground, message) {
         this.playground = playground;
-        this.message = new Message();
+        this.message = message;
     }
     getInvalidText() {
         return this.message.invalidText;
