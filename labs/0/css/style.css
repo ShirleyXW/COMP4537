@@ -1,0 +1,7 @@
+#error-message {
+    display: none;
+    color: red;
+}
+button {
+    margin: 10px;
+}
