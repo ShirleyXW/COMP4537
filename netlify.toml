@@ -1,0 +1,9 @@
+[build]
+  publish = "labs/0"
+  base = "labs/0"
+  command = "npm run build"  # 如果有构建命令的话
+
+[[redirects]]
+  from = "/labs/0/*"
+  to = "/labs/0/:splat"
+  status = 200
