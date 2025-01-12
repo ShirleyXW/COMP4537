@@ -1,5 +1,5 @@
 [build]
-  publish = "labs/0"
+  publish = "."
   base = "."
 
 [[redirects]]
