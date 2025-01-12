@@ -1,6 +1,6 @@
 [build]
   publish = "labs/0"
-  base = "labs/0"
+  base = "."
 
 [[redirects]]
   from = "/labs/0/*"
