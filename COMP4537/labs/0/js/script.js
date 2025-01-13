@@ -32,8 +32,8 @@ class Playground {
 
 const playground = new Playground();
 const message = new Message();
-const user = new User(playground, message);
-user.playground.createPlayground();
+const user = new User( message);
+playground.createPlayground();
 
 class Button {
     constructor(id) {
@@ -43,7 +43,7 @@ class Button {
         this.btn.innerText = id;
         this.btn.style.width = `${btnWidth}em`;
         this.btn.style.height = `${btnHeight}em`;
-        this.btn.style.backgroundColor = getColor();
+        this.btn.style.backgroundColor = this.getColor();
     }
     getButton() {
         return this.btn;
@@ -58,18 +58,18 @@ class Button {
     revealId() {
         return this.btn.id;
     }
-}
-
-
-function getColor() {
-    let colors = ["aliceblue", "aqua", "blueviolet", "chartreuse", "coral", "beige", "fuchsia"];
-    let index = Math.floor(Math.random() * colors.length);
-    while (colorExists.includes(index)) {
-        index = Math.floor(Math.random() * colors.length);
+    getColor() {
+        let colors = ["aliceblue", "aqua", "blueviolet", "chartreuse", "coral", "beige", "fuchsia"];
+        let index = Math.floor(Math.random() * colors.length);
+        while (colorExists.includes(index)) {
+            index = Math.floor(Math.random() * colors.length);
+        }
+        colorExists.push(index);
+        return colors[index];
     }
-    colorExists.push(index);
-    return colors[index];
+
 }
+
 
 function isValidInput(numOfBtns) {
     if (isNaN(numOfBtns) || numOfBtns < 3 || numOfBtns > 7) {
