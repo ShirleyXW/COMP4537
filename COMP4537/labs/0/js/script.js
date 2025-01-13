@@ -24,6 +24,9 @@ class Playground {
     clearPlayground() {
         this.playground.innerHTML = "";
     }
+    
+    // This code for inserting an element was adapted from OpenAI's suggestion.
+    // Source: OpenAI ChatGPT, conversation on [insert date].
     createPlayground() {
         document.getElementById("quest-and-create").insertAdjacentElement("afterend", playground.playground);
     }
