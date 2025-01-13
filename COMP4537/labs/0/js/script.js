@@ -65,39 +65,6 @@ class Button {
 
 }
 
-
-function enableClikableButtons() {
-    let order = 0;
-    buttons.forEach((button) => {
-        button.btn.onclick = function() {
-            if (order == button.btn.id - 1) {
-                order++;
-                button.btn.innerText = button.revealId();
-                console.log(order);
-                if (order == buttons.length) {
-                    alert(this.user.getCongratsText());
-                    colorExists = [];
-                    buttons = [];
-                    playground.clearPlayground();
-                }
-            } else {
-                buttons.forEach((button) => {
-                    button.btn.innerText = button.revealId();
-                });
-                setTimeout(() => {
-                    alert(this.user.getGameOverText());
-                    colorExists = [];
-                    buttons = [];
-                    playground.clearPlayground();
-                }
-                , defaultWaitTime);
-            }
-
-        }
-    });
-
-}
-
 class Game{
     constructor(colorExists, buttons, playground, user) {
         this.colorExists = colorExists;
