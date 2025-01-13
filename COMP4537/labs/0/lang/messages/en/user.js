@@ -1,6 +1,5 @@
 class User {
-    constructor(playground, message) {
-        this.playground = playground;
+    constructor(message) {
         this.message = message;
     }
     getInvalidText() {
