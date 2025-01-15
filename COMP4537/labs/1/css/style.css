@@ -8,3 +8,23 @@ a {
     color: black;
     margin-right: 10px;
 }
+
+#notebook-write, #notebook-read {
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    width: 80%;
+    height: 60%;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    overflow: scroll;
+}
+
+#stored-time,
+#updated-time {
+    position: absolute;
+    top: 2%;
+    left: 70%;
+}
