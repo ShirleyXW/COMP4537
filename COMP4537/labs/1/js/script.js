@@ -67,14 +67,19 @@ class Notebook {
     }
 
     retrieve(){
-        const notesFromLocal = JSON.parse(window.localStorage.getItem("notes"));
+        const notesFromLocal = JSON.parse(window.localStorage.getItem("notes") || null);
         let id = 0;
-        Object.keys(notesFromLocal).forEach(key => {
-            id += 1;
-            totalNumberOfNotes += 1;
-            this.notes[key] = notesFromLocal[key];
-            this.displayNote(key, this.notes[key], id);
-        });
+        console.log(notesFromLocal);
+        if (notesFromLocal != null){
+            Object.keys(notesFromLocal).forEach(key => {
+                id += 1;
+                totalNumberOfNotes += 1;
+                this.notes[key] = notesFromLocal[key];
+                this.displayNote(key, this.notes[key], id);
+            });
+        } else {
+            console.log("No notes stored");
+        }
         this.updateTime();
     }
     displayNote(uid, content, id){
