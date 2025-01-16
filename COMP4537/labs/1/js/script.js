@@ -69,7 +69,6 @@ class Notebook {
     retrieve(){
         const notesFromLocal = JSON.parse(window.localStorage.getItem("notes") || null);
         let id = 0;
-        console.log(notesFromLocal);
         if (notesFromLocal != null){
             Object.keys(notesFromLocal).forEach(key => {
                 id += 1;
@@ -77,8 +76,6 @@ class Notebook {
                 this.notes[key] = notesFromLocal[key];
                 this.displayNote(key, this.notes[key], id);
             });
-        } else {
-            console.log("No notes stored");
         }
         this.updateTime();
     }
