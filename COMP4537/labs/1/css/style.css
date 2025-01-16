@@ -22,7 +22,6 @@ a {
     overflow: scroll;
 }
 
-#stored-time,
 #updated-time {
     position: absolute;
     top: 2%;

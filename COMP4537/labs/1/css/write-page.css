@@ -1,0 +1,23 @@
+#stored-time {
+    position: absolute;
+    top: 2%;
+    left: 70%;
+}
+.textArea-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.text-area {
+    width: 250px;
+    height: 100px;
+    overflow: scroll;
+}
+
+.remove-button {
+    margin-left: 10px;
+    position: absolute;
+    top: 40%;
+
+}
+
