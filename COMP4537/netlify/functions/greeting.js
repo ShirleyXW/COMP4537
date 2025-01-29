@@ -1,5 +1,5 @@
 import getDate from "../../labs/3/modules/get-date.js";
-export default function greeting(event) {
+export function greeting(event) {
   const name = event.queryStringParameters.name || "Anonymous";
   const string = getDate(name);
   return {
