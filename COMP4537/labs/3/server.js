@@ -1,4 +1,4 @@
-import greeting from './netlify/functions/greeting.js';
+import greeting from '../../netlify/functions/greeting.js';
 import http from 'http';
 import url from 'url';
 
