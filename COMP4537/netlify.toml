@@ -1,8 +1,8 @@
 [build]
-  functions = "netlify/functions"
+  functions = "labs/3/netlify/functions"  # 指定函数的正确路径
 
 [[redirects]]
-  from = "/COMP4537/labs/3/*"
-  to = "/.netlify/functions/greeting"
+  from = "/COMP4537/labs/3/*"             # 定义重定向规则，将请求导向函数
+  to = "/.netlify/functions/greeting"     # 触发 greeting.js 函数
   status = 200
   force = true
